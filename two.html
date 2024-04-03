@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>two</title>
+		<link rel="stylesheet" type="text/css" href="css/two.css"/>
+		<audio src="media/BGM.mp3" autoplay="autoplay" class="music"></audio>
+	</head>
+	<body>
+		<div class="bigbox">
+			<div class="neiron">
+				<div class="yinyue"></div>
+				
+				<div class="yunduo"></div>
+				<div class="hehua"></div>
+				<div class="huaban"></div>
+				
+				<div class="zhojian">
+					<div class="guanyun"></div>
+					<div class="yuelian"></div>
+					
+					<div class="changer"></div>
+				</div>
+				
+				<div class="btn_next">
+					
+				</div>
+			</div>
+		</div>
+	</body>
+	
+	<script type="text/javascript">
+		function $(name) {
+			return document.querySelector(name);
+		}
+		
+		$(".yinyue").onclick = function() {
+			if($(".music").paused) {
+				$(".music").play();
+			}else {
+				$(".music").pause();
+			}
+		}
+		
+		$(".btn_next").addEventListener("click" , function() {
+			location.replace("three.html")
+		})
+	</script>
+</html>

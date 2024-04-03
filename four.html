@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>four</title>
+		<link rel="stylesheet" type="text/css" href="css/four.css"/>
+		<audio src="media/BGM.mp3" autoplay="autoplay" class="music"></audio>
+	</head>
+	<body>
+		<div class="bigbox">
+			<div class="neiron">
+				<div class="yinyue"></div>
+				
+				<div class="top">
+					<div class="timer"></div>
+					<div class="timer_text">
+						<b>30s</b>
+					</div>
+					
+					<div class="yuelian">
+						<div></div>
+						<div></div>
+					</div>
+					
+					<div class="shulian"></div>
+					<div class="shulian_text"><b>0/12</b> </div>
+					
+					<div class="changer">
+						
+					</div>
+				</div>
+				
+				
+				<div class="game">
+					
+				</div>
+				
+				<div class="game_win">
+					<div class="btn_win">
+						
+					</div>
+				</div>
+				
+				<div class="game_over">
+					<div class="two_btn">
+						<div></div>
+						<div></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	
+	<script type="text/javascript">
+		// 封装的获取元素
+		function $(name) {
+			return document.querySelector(name);
+		}
+		
+		// 音乐控制功能
+		$(".yinyue").onclick = function() {
+			if($(".music").paused) {
+				$(".music").play();
+			}else{
+				$(".music").pause();
+			}
+		}
+		
+		// 下一关按钮
+		$(".btn_win").onclick = function() {
+			location.replace("five.html");
+		}
+		
+		// 重新加载页面
+		$(".two_btn").children[0].onclick = function() {
+			location.reload();
+		}
+		
+		// 返回上一个页面功能
+		$(".two_btn").children[1].onclick = function() {
+			location.replace("two.html");
+		}
+		
+//		渲染生成
+		xuanran()
+		function xuanran() {
+			let game = document.querySelector(".game")
+			
+			// 生成月亮的个数然后设值在加入game里
+			for(let i = 0 ; i <= 8 ; i++) {
+				
+				let yl = document.createElement("div");
+				yl.setAttribute("class" , "yl");
+				game.appendChild(yl);
+				
+				
+			}
+		
+			// 执行打乱功能
+			rand();
+		};
+		
+		
+//		随机设置index
+		function rand() {
+//			让所有index清零
+			for(let i = 0 ; i <= $(".game").children.length - 1; i++) {
+				
+					$(".game").children[i].setAttribute("index" , "");
+					
+				}
+			
+			//			兔子的设置 三个随机设置index为1
+				for(let j = 0 ; j < 3 ; j++) {
+				
+					let randsum = Math.floor(Math.random() * $(".game").children.length);
+				
+					$(".game").children[randsum].setAttribute("index" , 1);
+					
+					
+				}
+				
+				
+				//			青蛙的设置
+			let rand2 = Math.floor(Math.random() * $(".game").children.length);
+			
+			if($(".game").children[rand2].getAttribute("index") == 1){
+				console.log("没青蛙幸运")
+				
+			}else {
+				$(".game").children[rand2].setAttribute("index" , 2);
+			}
+			
+			tuxian();
+			
+		}
+		
+		
+		
+//		兔子与青蛙生成------------------------------
+		function tuxian() {
+			for(let i = 0 ; i <= $(".game").children.length - 1; i++) {
+				
+				if($(".game").children[i].getAttribute("index") == 1) {
+					
+					let tuzi = document.createElement("div");
+					tuzi.setAttribute("class" , "tuzi");
+					$(".game").children[i].appendChild(tuzi);
+				}
+				if($(".game").children[i].getAttribute("index") == 2) {
+					
+					let qinwa = document.createElement("div");
+					qinwa.setAttribute("class" , "qingwa")
+					$(".game").children[i].appendChild(qinwa);
+				}
+				
+			}
+		}
+		
+		// 清除所有的子元素 然后调用打乱函数
+		function qingchuall() {
+			let game = document.querySelector(".game");
+			for(let i = 0 ; i <= 8 ; i++) {
+				if(game.children[i].getAttribute("index") == 1 || game.children[i].getAttribute("index") == 2) {
+				
+					game.children[i].removeChild(game.children[i].children[0]);
+			
+				}
+			}
+			
+			setTimeout(function() {
+				rand()
+			} , 500)
+			
+			
+		}
+
+		
+//		点击选择按钮 第一步点击开始事件然后开始执行清除函数
+		btn_game()  
+		function btn_game() {
+			let tuzi_num = 0;
+			let game_time = 30;
+			
+			timer = setInterval(function() {
+				$(".timer_text").children[0].innerHTML = game_time + "s";
+				game_time--;
+				if(game_time <= 0) {
+					$(".game_over").style.display = "block";
+					clearInterval(timer)
+				}
+			} , 1000)
+			
+			for(let i = 0 ; i <= $(".game").children.length - 1; i++) {
+				
+				$(".game").children[i].onclick = function() {
+					if(this.getAttribute("index") == 1) {
+						
+						$(".game").children[i].children[0].style.animation = "tuzi 1s";
+						setTimeout(function() {
+							tuzi_num++;
+							$(".shulian_text").children[0].innerHTML = tuzi_num + "/12";
+							if(tuzi_num >= 12) {
+								clearInterval(timer);
+								$(".game_win").style.display = "block";
+							}
+							
+							qingchuall()
+						} , 1000)
+						
+					}else if(this.getAttribute("index") == 2) {
+						clearInterval(timer);
+						$(".game_over").style.display = "block";
+					}else {
+						console.log("没中")
+					}
+				}
+				
+			}
+		}
+	</script>
+</html>

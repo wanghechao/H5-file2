@@ -1,0 +1,102 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+}
+
+.bigbox {
+	width: 400PX;
+	height: 700px;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.neiron {
+	width: 100%;
+	height: 100%;
+	background: url(../img/neiron3/背景.png) 100%/100% no-repeat;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: column;
+}
+
+.yinyue {
+	position: absolute;
+	right: 5%;
+	top: 2%;
+	width: 10%;
+	height: 6%;
+	cursor: pointer;
+	background: url(../img/neiron2/音乐.png) 100%/100% no-repeat;
+	animation: music 5s linear infinite;
+	z-index: 99;
+}
+
+@keyframes music{
+	from{transform: rotate(0deg)}
+	to{transform: rotate(360deg)}
+}
+
+
+.shanbian {
+	width: 65%;
+	height: 30%;
+	position: relative;
+	display: flex;
+	justify-content: center;
+}
+
+.shanbian :nth-child(1) {
+	position: absolute;
+	top: -8%;
+	width: 100%;
+	height: 100%;
+	background: url(../img/neiron3/光晕.png) 100%/100% no-repeat;
+	animation: gunayun 3s alternate infinite;
+}
+
+@keyframes gunayun{
+	from{opacity: 1;}
+	to{opacity: 0;}
+}
+
+.shanbian :nth-child(2) {
+	position: absolute;
+	top: -8%;
+	width: 95%;
+	height: 95%;
+	background: url(../img/neiron3/嫦娥月亮.png) 100%/100% no-repeat;
+}
+
+.xiabian {
+	width: 100%;
+	height: 100%;
+	border: 1px solid black;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+}
+
+.guizhe {
+	position: absolute;
+	top: 28%;
+	width: 80%;
+	height: 70%;
+	background: url(../img/neiron3/规则.png) 100%/100% no-repeat;
+}
+
+.btn_next {
+	position: absolute;
+	bottom: 5%;
+	width: 40%;
+	height: 6%;
+	cursor: pointer;
+	background: url(../img/neiron3/立即开始.png) 100%/100% no-repeat;
+}

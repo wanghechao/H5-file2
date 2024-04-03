@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>three</title>
+		<link rel="stylesheet" type="text/css" href="css/three.css"/>
+		<script src="js/music.js"></script>
+		<audio src="media/BGM.mp3" autoplay="autoplay" class="music"></audio>
+	</head>
+	<body>
+		<div class="bigbox">
+			<div class="neiron">
+				<div class="yinyue"></div>
+				<div class="shanbian">
+					<div></div>
+					<div></div>
+				</div>
+				
+				<div class="xiabian">
+					<div class="guizhe"></div>
+					<div class="btn_next">
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	
+	<script type="text/javascript">
+		let next_btn = document.querySelector(".btn_next");
+		next_btn.addEventListener("click" , function() {
+			location.replace("four.html")
+		})
+	</script>
+	
+</html>

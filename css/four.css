@@ -1,0 +1,245 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+}
+
+.bigbox {
+	width: 400PX;
+	height: 700px;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+}
+
+.neiron {
+	width: 100%;
+	height: 100%;
+	background: url(../img/neiron4/背景.png) 100%/100% no-repeat;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: column;
+}
+
+.yinyue {
+	position: absolute;
+	right: 5%;
+	top: 2%;
+	width: 10%;
+	height: 6%;
+	cursor: pointer;
+	background: url(../img/neiron2/音乐.png) 100%/100% no-repeat;
+	animation: music 5s linear infinite;
+	z-index: 99;
+}
+
+@keyframes music{
+	from{transform: rotate(0deg)}
+	to{transform: rotate(360deg)}
+}
+
+
+.top {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 30%;
+	display: flex;
+	justify-content: space-between;
+	}
+
+.timer {
+	position: relative;
+	left: 5%;
+	top: 5%;
+	height: 20%;
+	width: 20%;
+	background: url(../img/neiron4/时间.png) 100%/100% no-repeat;
+	z-index: 2;
+}
+
+.timer_text {
+	position: absolute;
+	top: 10%;
+	left: 28%;
+	z-index: 2;
+	color: red;
+}
+
+.yuelian {
+	position: relative;
+	height: 100%;
+	width: 60%;
+	
+}
+
+.yuelian :nth-child(1) {
+	transform: translate(-35px , -90px);
+	position: absolute;
+	width: 120%;
+	height: 120%;
+	background: url(../img/neiron4/光晕.png) 100%/100% no-repeat;
+	animation: yuelian_anima 3s alternate infinite;
+}
+
+.yuelian :nth-child(2) {
+	transform: translate(-15px , -75px);
+	position: absolute;
+	width: 105%;
+	height: 100%;
+	background: url(../img/neiron4/月亮.png) 100%/100% no-repeat;
+}
+
+@keyframes yuelian_anima{
+	from{opacity: 1;}
+	to{opacity: 0;}
+}
+
+.shulian {
+	height: 20%;
+	width: 20%;
+	background: url(../img/neiron4/右上角兔子.png) 100%/100% no-repeat;
+	position: relative;
+	top: 5%;
+	right: 15%;
+}
+
+.shulian_text {
+	position: absolute;
+	right: 5%;
+	top: 12%;
+	color: red;
+	
+}
+
+.changer {
+	position: absolute;
+	width: 30%;
+	height: 100%;
+	left: 40%;
+	transform: translate(-50%);
+	background: url(../img/neiron2/嫦娥.png) 100%/100% no-repeat;
+}
+
+.game {
+	position: absolute;
+	top: 55%;
+	transform: translate(0 , -50%);
+	width: 90%;
+	height: 60%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.yl {
+	position: relative;
+	cursor: pointer;
+	width: 26%;
+	height: 22%;
+	background: url(../img/neiron4/小月亮.png) 100%/100% no-repeat;
+}
+
+.tuzi {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: url(../img/neiron4/兔子.png) 50%/50% no-repeat;
+	animation: dowu 1s linear forwards;
+}
+
+.qingwa {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: url(../img/neiron4/青蛙.png) 50%/50% no-repeat;
+	animation: dowu 1s linear forwards;
+}
+
+@keyframes dowu{
+	from{opacity: 1;}
+	to{opacity: 0;}
+}
+
+@keyframes tuzi{
+	0%{
+		transform: translate(0);
+	}
+	100%{
+		transform: scale(.7) translate(100px , -300px);
+	}
+}
+
+.game_win {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: url(../img/neiron4/助娥奔月.png) 100%/100% no-repeat;
+	z-index: 3;
+	display: none;
+	animation: game_win 2s linear forwards;
+}
+
+.game_win :nth-child(1) {
+	position: absolute;
+	bottom: 29%;
+	left: 50%;
+	transform: translate(-50%);
+	width: 45%;
+	height: 7%;
+	cursor: pointer;
+}
+
+
+@keyframes game_win{
+	from{
+		transform: scale(0);
+		opacity: 0;
+	}
+	to{
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+.game_over {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: url(../img/neiron4/失败.png) 100%/100% no-repeat;
+	z-index: 3;
+	animation: game_win 2s linear forwards;
+	display: none;
+}
+
+.two_btn {
+	position: absolute;
+	width: 45%;
+	height: 16%;
+	bottom: 20%;
+	left: 50%;
+	transform: translate(-50%);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	
+}
+
+.two_btn :nth-child(1) {
+	width: 100%;
+	height: 40%;
+	cursor: pointer;
+}
+.two_btn :nth-child(2) {
+	width: 100%;
+	height: 40%;
+	cursor: pointer;
+}

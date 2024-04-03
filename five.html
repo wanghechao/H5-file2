@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>five</title>
+		<link rel="stylesheet" type="text/css" href="css/five.css"/>
+		<audio src="media/BGM.mp3" autoplay="autoplay" class="music"></audio>
+	</head>
+	<body>
+		<div class="bigbox">
+			<div class="neiron">
+				<div class="yinyue"></div>
+				<div class="yunduo"></div>
+				<div class="all_huaban">
+					<div class="huaban"></div>
+					<div class="huaban"></div>
+					<div class="huaban"></div>
+				</div>
+				
+				
+				<div class="changer"></div>
+				<div class="btn_zhuer"></div>
+			</div>
+		</div>
+	</body>
+	
+	<script type="text/javascript">
+		function $(name) {
+			return document.querySelector(name);
+		}
+		
+		$(".yinyue").onclick = function() {
+			if($(".music").paused) {
+				$(".music").play();
+			}else{
+				$(".music").pause();
+			}
+		}
+		
+		setInterval(function() {
+			let rand = Math.floor(Math.random() * $(".all_huaban").children.length)
+			$(".all_huaban").children[rand].style.animation = "huaban_anima 8s linear";
+			
+			setTimeout(function() {
+				$(".all_huaban").children[rand].style.animation = "";
+			} , 9000)
+		} , 10000);
+		
+		let celeft = 15;
+		let cebottom = 12;
+		let scale = 1;
+		
+		$(".btn_zhuer").onclick = function() {
+			celeft += 5;
+			cebottom += 5;
+			scale -= 0.08;
+			$(".changer").style.left = celeft + "%";
+			$(".changer").style.bottom = cebottom + "%";
+			$(".changer").style.transform = "scale(" + scale + ")";
+			
+			if(scale <= 0) {
+				location.replace("six.html")
+			}
+		}
+		
+	</script>
+</html>

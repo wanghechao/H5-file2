@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>six</title>
+		<link rel="stylesheet" type="text/css" href="css/six.css"/>
+		<audio src="media/BGM.mp3" autoplay="autoplay" class="music"></audio>
+	</head>
+	<body>
+		<div class="bigbox">
+			<div class="neiron">
+				<div class="yinyue"></div>
+				
+				<div class="shuxing">
+					<div>亲爱的你<br />
+						又是一年中秋佳节，再次我们祝福您。<br>
+						中秋快乐，阖家团圆。
+					</div>
+				</div>
+				<div class="btn_next"></div>
+			</div>
+		</div>
+	</body>
+	
+	<script type="text/javascript">
+		function $(name) {
+			return document.querySelector(name);
+		}
+		
+		$(".yinyue").onclick = function() {
+			if($(".music").paused) {
+				$(".music").play();
+			}else{
+				$(".music").pause();
+			}
+		}
+		
+		$(".btn_next").onclick = function() {
+			location.replace("two.html");
+		}
+	</script>
+</html>

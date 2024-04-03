@@ -1,0 +1,160 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+}
+
+.bigbox {
+	width: 400PX;
+	height: 700px;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+}
+
+.neiron {
+	width: 100%;
+	height: 100%;
+	background: url(../img/neiron2/背景.png) 100%/100% no-repeat;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+
+.yinyue {
+	position: absolute;
+	right: 5%;
+	top: 2%;
+	width: 10%;
+	height: 6%;
+	cursor: pointer;
+	background: url(../img/neiron2/音乐.png) 100%/100% no-repeat;
+	animation: music 5s linear infinite;
+}
+
+@keyframes music{
+	from{transform: rotate(0deg)}
+	to{transform: rotate(360deg)}
+}
+
+.hehua {
+	position: absolute;
+	bottom: 12%;
+	left: 15%;
+	width: 25%;
+	height: 10%;
+	background: url(../img/荷花.png) 100%/100% no-repeat;
+	animation:hehua_anima 6s alternate infinite ;
+}
+
+@keyframes hehua_anima{
+	0%{
+		transform: translate(0);
+	}
+	50%{
+		transform: translate(10px , 5px);
+	}
+	100%{
+		transform: translate(-10px , -5px);
+	}
+}
+
+.yunduo {
+	position: absolute;
+	top: 15%;
+	width: 40%;
+	height: 15%;
+	background: url(../img/云朵.png) 100%/100% no-repeat;
+	animation: yunduo_anima 20s linear infinite;
+}
+
+@keyframes yunduo_anima{
+	0%{
+		transform: translate(300px);
+	}
+	50%{
+		transform: translate(-300px);
+	}
+	100%{
+		transform: translate(300px);
+	}
+}
+
+.huaban {
+	position: absolute;
+	width: 10%;
+	height: 6%;
+	left: -10%;
+	top: 20%;
+	background: url(../img/neiron2/花瓣.png) 100%/100% no-repeat;
+	z-index: 3;
+	animation: huaban_anima 6s linear infinite;
+}
+
+@keyframes huaban_anima{
+	0%{
+		transform: translate(0);
+	}
+	50%{
+		transform: translate(70px , 150px);
+	}
+	100%{
+		transform: translate(0px , 300px);
+	}
+}
+
+.zhojian {
+	bottom: 5%;
+	width: 100%;
+	height: 50%;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.guanyun {
+	position: absolute;
+	width: 72%;
+	height: 100%;
+	background: url(../img/neiron2/光晕.png) 100%/100% no-repeat;
+	animation: guanyun_anima 3s alternate infinite;
+}
+
+@keyframes guanyun_anima{
+	from{opacity: 1;}
+	to{opacity: 0;}
+}
+
+.yuelian {
+	position: absolute;
+	width: 69%;
+	height: 100%;
+	background: url(../img/neiron2/月亮2.png) 100%/100% no-repeat;
+}
+
+.changer {
+	position: absolute;
+	top: 20%;
+	left: 20%;
+	width: 50%;
+	height: 100%;
+	background: url(../img/neiron2/嫦娥.png) 100%/100% no-repeat;
+}
+
+.btn_next {
+	position: absolute;
+	bottom: 15%;
+	width: 40%;
+	height: 7%;
+	cursor: pointer;
+	background: url(../img/neiron2/按钮.png) 100%/100% no-repeat;
+}
